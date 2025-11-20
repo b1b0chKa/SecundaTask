@@ -22,7 +22,7 @@ class OrganizationService
         $query = $this->withRelations(Organization::query());
 
         if(!empty($data['building_id']))
-            return $query->where('id', $data['building_id'])->get();
+            return $query->where('building_id', $data['building_id'])->get();
 
         if (!empty($data['address']))
         {

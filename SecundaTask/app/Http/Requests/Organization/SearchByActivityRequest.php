@@ -30,7 +30,7 @@ class SearchByActivityRequest extends FormRequest
     {
         return [
             'activity_id'      => ['nullable', 'numeric', 'exists:activities,id'],
-            'name'             => ['nullable', 'string', 'max:255'],
+            'activity_name'    => ['nullable', 'string', 'max:255'],
             'include_children' => ['nullable', 'boolean'],
         ];
     }
@@ -38,11 +38,11 @@ class SearchByActivityRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'activity_id.numeric' => 'Поле activity_id должно быть целым числом.',
-            'activity_id.exists'  => 'Деятельности с таким id не существует.',
-            'name.string'         => 'Поле name должно быть строкой.',
-            'name.max'            => 'Поле name не может содержать больше 255 символов.',
-            'include_children'    => 'Поле должно быть типа boolean.',
+            'activity_id.numeric'  => 'Поле activity_id должно быть целым числом.',
+            'activity_id.exists'   => 'Деятельности с таким id не существует.',
+            'activity_name.string' => 'Поле activity_name должно быть строкой.',
+            'activity_name.max'    => 'Поле activity_name не может содержать больше 255 символов.',
+            'include_children'     => 'Поле должно быть типа boolean.',
         ];
     }
 }

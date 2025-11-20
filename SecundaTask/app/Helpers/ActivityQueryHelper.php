@@ -12,8 +12,8 @@ class ActivityQueryHelper
         if (!empty($data['activity_id']))
             return Activity::find($data['activity_id']);
 
-        if (!empty($data['name']))
-            return Activity::where('name', 'ilike', "%{$data['name']}%")->first();
+        if (!empty($data['activity_name']))
+            return Activity::where('name', 'ilike', "%{$data['activity_name']}%")->first();
 
         return null;
     }
