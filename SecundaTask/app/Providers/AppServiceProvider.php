@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Responses\ApiResponse;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Response::macro('api', function ($code, $data = null, ?string $message = null)
+        {
+            return ApiResponse::success($data, $message, $code);
+        });
     }
 }
