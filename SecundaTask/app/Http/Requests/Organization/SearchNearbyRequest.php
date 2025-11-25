@@ -35,6 +35,16 @@ class SearchNearbyRequest extends FormRequest
         ];
     }
 
+
+    protected function prepareForValidation()
+    {
+        $this->replace($this->only([
+            'latitude', 'longitude', 'radius',
+            'lat_min', 'lat_max', 'lng_min', 'lng_max'
+        ]));
+    }
+
+
     public function messages(): array
     {
         return [
